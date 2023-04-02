@@ -41,10 +41,16 @@ Para conectarse a la API debe completar todos los requerimientos, solo el `id`en
 ```
 
 # Docker 
-> Usando MariaDB
-Colocar los comandos para docker 
-docker run -p 3000:3000 prueba:1
-crear un docker-compose
+> Primero debemos crear el contenedor de Docker
+```bash
+docker run -v ./docker/basededatos/docker_MySQL_DB:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 --name gestor_productos -d mysql
+```
+
+> Segundo podemos entrar a configurar la base de datos
+```bash
+docker exec -it gestor_productos mysql -u root -p
+```
+
 
 
 # Base de Datos
