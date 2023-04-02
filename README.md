@@ -1,4 +1,4 @@
-# Gestor de Productos
+# Chilly
 ![Logo de la Aplicación](Images/logo.png)
 
  - [Instalación y uso](#instalación-y-uso)
