@@ -1,5 +1,6 @@
 # Modulo del Sistema
 import sys
+import base64
 
 # Modulo de Conexion
 import Conectors.productos as productos
@@ -8,6 +9,8 @@ import Conectors.productos as productos
 from PyQt5 import uic
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QLineEdit
+from PyQt5.QtWidgets import QLabel
+from PyQt5.QtGui import QIcon, QPixmap, QImage
 
 class interface(QMainWindow):
     producto = productos.productos()
@@ -48,6 +51,7 @@ class interface(QMainWindow):
         # Cargamos boton de cargar
         self.boton_productos.clicked.connect(self.cargador_tabla_componentes)
 
+
     def eleccion_producto(self):
         try:
             global codigoSeleccion
@@ -56,7 +60,22 @@ class interface(QMainWindow):
             self.tabla_productos.selectRow(linea)
             self.mensaje_productos.setText("")
             print(f"Linea:{linea} ID:{codigoSeleccion}")
-            self.seleccionar(codigoSeleccion)
+
+            # Añadiendo imagen
+ 
+            for foto in self.producto.listar():
+                binary_data = bytes(foto['foto_producto']['data'])
+                image = QImage.fromData(binary_data)
+                self.imagen.setPixmap(QPixmap.fromImage(image))           
+            """
+            pixmap= QPixmap()
+            pixmap.loadFromData(imagen)
+            self.imagen.setPixmap(pixmap)
+            """
+
+
+            self.seleccionar()
+
             return codigoSeleccion
         except:
             self.mensaje_productos.setText("[Seleccione el ID del Producto]")
@@ -94,23 +113,20 @@ class interface(QMainWindow):
     --> Parte logica
     """
     # Boton de seleccionar
-    def seleccionar(self, id):
+    def seleccionar(self):
         try:
-            global salida
-            # salida= self.productos.listar()
             salida = self.producto.listar()
             for individual in salida:
-                if individual['id']==codigoSeleccion:
-                    codigo=str(individual['id'])
-                    global nombreSeleccion
-                    nombreSeleccion=str(individual['nombre'])
-                    # Mostramos en la opcion de Editar
-                    self.id_editar.setText(codigo)
-                    self.nombre_editar.setText(nombreSeleccion)
-                    # Mostramos en la opcion de Eliminar
-                    self.id_eliminar.setText(codigo)
-                    self.nombre_eliminar.setText(nombreSeleccion)
-                    return nombreSeleccion
+                codigo=str(individual['id'])
+                global nombreSeleccion
+                nombreSeleccion=str(individual['nombre'])
+                # Mostramos en la opcion de Editar
+                self.id_editar.setText(codigo)
+                self.nombre_editar.setText(nombreSeleccion)
+                # Mostramos en la opcion de Eliminar
+                self.id_eliminar.setText(codigo)
+                self.nombre_eliminar.setText(nombreSeleccion)
+                return nombreSeleccion
         except:
             self.mensaje_productos.setText("[ID no seleccionado]")
 

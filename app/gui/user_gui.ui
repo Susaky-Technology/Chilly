@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1080</width>
-    <height>749</height>
+    <width>1077</width>
+    <height>674</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -106,11 +106,37 @@
       <string>Seleccionar</string>
      </property>
     </widget>
+    <widget class="QLabel" name="imagen">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>170</y>
+       <width>151</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>120</y>
+       <width>57</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Foto</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>20</y>
       <width>131</width>
       <height>16</height>
@@ -129,7 +155,7 @@
       <x>730</x>
       <y>50</y>
       <width>341</width>
-      <height>401</height>
+      <height>551</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -608,8 +634,8 @@ background-color: white;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>670</y>
-      <width>1051</width>
+      <y>610</y>
+      <width>711</width>
       <height>41</height>
      </rect>
     </property>

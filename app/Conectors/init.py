@@ -15,7 +15,7 @@ class conexion:
             print("Direccion: ", valor['direccion'], ": ")
             print("Telefono: ", valor['telefono'], ": ")
             print("Area: ", valor['area'], ": ")
-            print("Foto: ", valor['foto_trabajador'], ": ")
+            #print("Foto: ", valor['foto_trabajador'], ": ")
             print("-------------------------------------------------------------------------------------")
         return response
 
@@ -27,7 +27,7 @@ class conexion:
             print("Cantidad : ", valor['cantidad'], ": ")
             print("Precio : ", valor['precio'], ": ")
             print("Valor : ", valor['valor_total'], ": ")
-            print("Foto : ", valor['foto_producto'], ": ")
+            # print("Foto : ", valor['foto_producto'], ": ")
             print("-------------------------------------------------------------------------------------")
         return response
 
