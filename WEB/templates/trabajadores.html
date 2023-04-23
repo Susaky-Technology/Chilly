@@ -1,0 +1,102 @@
+{% extends "plantilla.html" %}
+{% block title %} Trabajadores {% endblock %}
+{% block content %}
+
+<link href="{{ url_for('static', path='productos.css') }}" rel="stylesheet">
+<script>
+  function seleccionar(celda) {
+    var nombre = celda.innerHTML;
+    console.log(nombre);
+  }
+</script>
+
+<div class="row">
+<h1>Trabajadores</h1>
+<div class="tabla col">
+  <h3>Lista:</h3>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Área</th>
+        <th scope="col">Foto</th>
+      </tr>
+    </thead>
+    <tbody>
+	    {% for key in response %}
+      <tr>
+        <th scope="row" onclick="seleccionar(this)">{{ key.id }}</th>
+        <td>{{ key.nombres }}</td>
+        <td>{{ key.apellidos }}</td>
+        <td>{{ key.cedula }}</td>
+        <td>{{ key.correo }}</td>
+        <td>{{ key.direccion }}</td>
+        <td>{{ key.telefono }}</td>
+        <td>{{ key.area }}</td>
+        <td>{{ key.foto }}</td>
+      </tr>
+	    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="tabla col menu">
+  <hr>
+  <h3>Añadir Trabajador:</h3>
+  <form action="/trabajadores" method="POST">
+    <label class="item">
+      <input type="hidden" name="_method" value="POST">
+      <input type="text" name="nombre" placeholder="Nombre: Jorge">
+      <input type="text" name="apellidos" placeholder="Apellidos: Arguello">
+      <input type="number" name="cedula" placeholder="Cedula: 16010000000">
+      <input type="email" name="correo" placeholder="Correo: example@example.com">
+      <input type="text" name="direccion" placeholder="Dirección: Puyo">
+      <input type="text" name="telefono" placeholder="Teléfono: 09008888">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>-- Selecciona el área de Trabajo --</option>
+        <option name="area">Admin</option>
+        <option name="area">Bodega</option>
+        <option name="area">Caja</option>
+      </select>
+      <input type="file" name="foto">Foto
+      <input type="submit" class="btn btn-primary" value="Añadir">
+    </label>
+  </form>
+
+
+  <hr>
+
+  <h3>Editar Trabajador</h3>
+  <form action="/productos" method="POST">
+    <label class="item">
+      <input type="hidden" name="_method" value="PUT">
+      <input type="number" name="id" placeholder="ID: Inserte el ID del Trabajador a editar">
+      <input type="text" name="nombre" placeholder="Nombre: Coca Cola">
+      <input type="number" name="cantidad" placeholder="Cantidad: 1">
+      <input step="any" type="number" name="precio" placeholder="Precio: 0.00">
+      <input type="submit" class="btn btn-primary" value="Editar">
+      </br>
+    </label>
+  </form>
+
+  <hr>
+  <h3>Eliminar Trabajador</h3>
+  <form action="/productos" method="POST">
+    <label class="item">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="number" name="id" placeholder="ID: Inserte el ID del producto a editar">
+      <input type="submit" class="btn btn-primary" value="Eliminar">
+      </br>
+    </label>
+  </form>
+
+</div>
+</div>
+
+{% endblock %}

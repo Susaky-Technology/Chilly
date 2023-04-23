@@ -1,8 +1,4 @@
-try:
-    import Conectors.init as init
-except:
-    import init
-
+import Conectors.init as init
 import requests
 import json
 
@@ -28,7 +24,7 @@ class trabajadores(init.conexion):
         response = requests.get(URL)
         seteado = json.loads(response.text)
         maquetador.maquetador(seteado)
-        return True
+        return seteado
 
     def buscar(self, id):
         try:

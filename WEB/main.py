@@ -98,3 +98,21 @@ async def productos_post(request: Request):
     if data['_method'] == "DELETE":
         produ.eliminar(data['id'])
     return RedirectResponse("/main")
+
+# Listar Trabajadores
+@app.route("/trabajadores", methods=['GET', 'POST'])
+async def trabajadores_get(request: Request):
+    response = users.listar()
+    try:
+        data = await request.form()
+        if data['_method'] == "POST":
+            print()
+        if data['_method'] == 'PUT':
+            print()
+        if data['_method'] == "DELETE":
+            print()
+    except:
+        return templates.TemplateResponse("trabajadores.html", {
+            "request": request,
+            "response": response
+        })
