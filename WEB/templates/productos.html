@@ -1,0 +1,81 @@
+{% extends "plantilla.html" %}
+{% block title %} Productos {% endblock %}
+{% block content %}
+
+<link href="{{ url_for('static', path='productos.css') }}" rel="stylesheet">
+<script>
+  function seleccionar(celda) {
+    var nombre = celda.innerHTML;
+    console.log(nombre);
+  }
+</script>
+
+<div class="row">
+<h1>Productos</h1>
+<div class="tabla col">
+  <h3>Lista:</h3>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Cantidad (#)</th>
+        <th scope="col">Precio ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+	    {% for key in response %}
+      <tr>
+        <th scope="row" onclick="seleccionar(this)">{{ key.id }}</th>
+        <td>{{ key.nombre }}</td>
+        <td>{{ key.cantidad }}</td>
+        <td>{{ key.precio|float }}</td>
+      </tr>
+	    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="tabla col menu">
+  <hr>
+  <h3>Añadir Producto:</h3>
+  <form action="/productos" method="POST">
+    <label class="item">
+      <input type="hidden" name="_method" value="POST">
+      <input type="text" name="nombre" placeholder="Nombre: Coca Cola">
+      <input type="number" name="cantidad" placeholder="Cantidad: 1">
+      <input step="any" type="number" name="precio" placeholder="Precio: 0.00">
+      <input type="submit" class="btn btn-primary" value="Añadir">
+    </label>
+  </form>
+
+  <hr>
+
+  <h3>Editar Producto</h3>
+  <form action="/productos" method="POST">
+    <label class="item">
+      <input type="hidden" name="_method" value="PUT">
+      <input type="number" name="id" placeholder="ID: Inserte el ID del producto a editar">
+      <input type="text" name="nombre" placeholder="Nombre: Coca Cola">
+      <input type="number" name="cantidad" placeholder="Cantidad: 1">
+      <input step="any" type="number" name="precio" placeholder="Precio: 0.00">
+      <input type="submit" class="btn btn-primary" value="Editar">
+      </br>
+    </label>
+  </form>
+
+  <hr>
+  <h3>Eliminar Producto</h3>
+  <form action="/productos" method="POST">
+    <label class="item">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="number" name="id" placeholder="ID: Inserte el ID del producto a editar">
+      <input type="submit" class="btn btn-primary" value="Eliminar">
+      </br>
+    </label>
+  </form>
+
+</div>
+</div>
+
+{% endblock %}

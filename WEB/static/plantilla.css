@@ -1,0 +1,32 @@
+.breadcrumb li a{
+    text-decoration: none;
+    color: gray;
+    padding: 0.5em;
+}
+
+nav{
+    padding: 1.1em;
+}
+
+.breadcrumb ol:hover{
+    color: white;
+    background-color: gray;
+    padding: 0.9em;
+    border-radius: 2px;
+}
+
+
+.my-footer{
+    bottom: 0;
+    left: 0;
+    right: 0;
+	  background-color: #f1f1f1;
+	  padding: 10px;
+	  width: 100%;
+	  text-align: center;
+}
+
+.my-content{
+    position: relative;
+
+}
