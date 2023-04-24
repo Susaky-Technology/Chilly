@@ -40,12 +40,12 @@ const mysqlConnection = mysql.createConnection({
 # Docker 
 > Primero debemos crear el contenedor de Docker
 ```bash
-docker run -v ./docker/basededatos/docker_MySQL_DB:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 --name gestor_productos -d mysql
+docker run -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 --name chilly_db -d mysql
 ```
 
 > Segundo podemos entrar a configurar la base de datos
 ```bash
-docker exec -it gestor_productos mysql -u root -p
+docker exec -it chilly_db -u root -p
 ```
 
 
