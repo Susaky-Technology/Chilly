@@ -30,3 +30,12 @@ nav{
     position: relative;
 
 }
+
+.mi-navbar nav img{
+    width: 100px;
+    border-radius: 100px;
+}
+
+li#foto-usuario{
+    float: right;
+}

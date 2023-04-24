@@ -15,6 +15,7 @@
         <div class="container-fluid">
             <!-- Colocar en que parte de la web se encuentra -->
             <p><a class="navbar-brand" href="/main">Chilly</a>- {% block title %}{% endblock %}</p>
+            <img id="logo-img" src="{{ url_for('static', path='images/logo.png') }}" alt="logo">
         </div>
     </nav>
 
@@ -22,9 +23,12 @@
         <div class="container-fluid">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="/main">Productos</a></li>
-                    <li class="breadcrumb-item"><a href="/trabajadores">Trabajadores</a></li>
+                    <li id="foto-usuario" class"breadcrumb-item"><a href="/trabajadores">{% block name_user %}👤 Jorge {% endblock %}</a></li>
+                    <li class="breadcrumb-item"><a href="/">🌶️ Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="/main">🛒 Productos</a></li>
+                    <li class="breadcrumb-item"><a href="/trabajadores">👤 Trabajadores</a></li>
+                    <!-- Usuario -->
+                    <li></li>
                 </ol>
             </nav>
         </div>

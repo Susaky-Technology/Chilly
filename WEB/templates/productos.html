@@ -28,8 +28,8 @@
       <tr>
         <th scope="row" onclick="seleccionar(this)">{{ key.id }}</th>
         <td>{{ key.nombre }}</td>
-        <td>{{ key.cantidad }}</td>
-        <td>{{ key.precio|float }}</td>
+        <td># {{ key.cantidad }}</td>
+        <td>💲{{ key.precio|float }}</td>
       </tr>
 	    {% endfor %}
     </tbody>
@@ -45,7 +45,7 @@
       <input type="text" name="nombre" placeholder="Nombre: Coca Cola">
       <input type="number" name="cantidad" placeholder="Cantidad: 1">
       <input step="any" type="number" name="precio" placeholder="Precio: 0.00">
-      <input type="submit" class="btn btn-primary" value="Añadir">
+      <input type="submit" class="btn btn-primary" value="Añadir 🞦">
     </label>
   </form>
 
@@ -59,7 +59,7 @@
       <input type="text" name="nombre" placeholder="Nombre: Coca Cola">
       <input type="number" name="cantidad" placeholder="Cantidad: 1">
       <input step="any" type="number" name="precio" placeholder="Precio: 0.00">
-      <input type="submit" class="btn btn-primary" value="Editar">
+      <input type="submit" class="btn btn-primary" value="Editar 🖉">
       </br>
     </label>
   </form>
@@ -69,8 +69,8 @@
   <form action="/productos" method="POST">
     <label class="item">
       <input type="hidden" name="_method" value="DELETE">
-      <input type="number" name="id" placeholder="ID: Inserte el ID del producto a editar">
-      <input type="submit" class="btn btn-primary" value="Eliminar">
+      <input type="number" name="id" placeholder="ID: Inserte el ID del producto a eliminar">
+      <input type="submit" class="btn btn-primary" value="Eliminar ✘">
       </br>
     </label>
   </form>

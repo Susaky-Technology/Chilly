@@ -64,7 +64,8 @@
         <option name="area">Bodega</option>
         <option name="area">Caja</option>
       </select>
-      <input type="file" name="foto">Foto
+      <label>Carga la foto del trabajador </label>
+      <input type="file" name="foto">
       <input type="submit" class="btn btn-primary" value="Añadir">
     </label>
   </form>
@@ -77,9 +78,21 @@
     <label class="item">
       <input type="hidden" name="_method" value="PUT">
       <input type="number" name="id" placeholder="ID: Inserte el ID del Trabajador a editar">
-      <input type="text" name="nombre" placeholder="Nombre: Coca Cola">
-      <input type="number" name="cantidad" placeholder="Cantidad: 1">
-      <input step="any" type="number" name="precio" placeholder="Precio: 0.00">
+      <input type="text" name="nombre" placeholder="Nombre: Jorge">
+      <input type="text" name="apellidos" placeholder="Apellidos: Arguello">
+      <input type="number" name="cedula" placeholder="Cedula: 16010000000">
+      <input type="email" name="correo" placeholder="Correo: example@example.com">
+      <input type="text" name="direccion" placeholder="Dirección: Puyo">
+      <input type="text" name="telefono" placeholder="Teléfono: 09008888">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>-- Selecciona el área de Trabajo --</option>
+        <option name="area">Admin</option>
+        <option name="area">Bodega</option>
+        <option name="area">Caja</option>
+      </select>
+      <label>Carga la foto del trabajador </label>
+      <input type="file" name="foto">
+ 
       <input type="submit" class="btn btn-primary" value="Editar">
       </br>
     </label>
@@ -90,7 +103,7 @@
   <form action="/productos" method="POST">
     <label class="item">
       <input type="hidden" name="_method" value="DELETE">
-      <input type="number" name="id" placeholder="ID: Inserte el ID del producto a editar">
+      <input type="number" name="id" placeholder="ID: Inserte el ID del trabajador a eliminar">
       <input type="submit" class="btn btn-primary" value="Eliminar">
       </br>
     </label>
