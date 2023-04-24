@@ -22,13 +22,13 @@ ENGINE= 'InnoDB' DEFAULT CHAR SET= latin1;
 
 CREATE TABLE trabajadores(
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nombres VARCHAR(20) NOT NULL,
-    apellidos VARCHAR(20) NOT NULL,
-    cedula INT NOT NULL,
-    correo VARCHAR(50) NOT NULL,
-    direccion VARCHAR(20)NOT NULL,
-    telefono INT NOT NULL,
-    area VARCHAR(20) NOT NULL,
+    nombres VARCHAR(20) ,
+    apellidos VARCHAR(20) ,
+    cedula VARCHAR(20),
+    correo VARCHAR(50) ,
+    direccion VARCHAR(20),
+    telefono INT ,
+    area VARCHAR(20) ,
     foto_trabajador BLOB)
 ENGINE= 'InnoDB' DEFAULT CHAR SET= latin1;
 

@@ -3,9 +3,12 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 import jinja2
+import uvicorn
 
 from Conectors.trabajadores import trabajadores
 from Conectors.productos import productos
+
+import os
 
 # Configuramos FastAPi
 app = FastAPI()
@@ -116,3 +119,6 @@ async def trabajadores_get(request: Request):
             "request": request,
             "response": response
         })
+
+if __name__ == '__main__':
+    uvicorn.run(app, host= os.getenv('DB_URL'), port=8000)

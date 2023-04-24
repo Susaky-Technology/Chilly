@@ -1,10 +1,15 @@
 const mysql = require('mysql2');
 
+// Define las variables de entorno
+const db_url = process.env.DB_URL;
+const db_user = process.env.DB_USER;
+const db_passwd= process.env.DB_PASSWD;
+
 const mysqlConnection = mysql.createConnection({
-  host: '192.168.0.106',
-  user: 'root',
+  host: db_url,
+  user: db_user,
   database: 'aplicacion',
-  password: 'root',
+  password: db_passwd,
   // multipleStatements: true
 });
 mysqlConnection.connect(function (err) {
