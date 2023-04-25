@@ -14,7 +14,8 @@ const mariadb = require('../src/database');
  * - Los clientes van a poder ver en que gastaron o compraron.
  */
 router.get('/', (req, res) => {
-  mariadb.query('SELECT * FROM factura', (err, rows, fields) => {
+  const query ='select clientes.nombres, clientes.apellidos,  factura.* from factura inner join clientes on factura.cliente = clientes.id';
+  mariadb.query(query, (err, rows, fields) => {
     if(!err) {
       res.json(rows);
       console.log(rows);
@@ -27,7 +28,8 @@ router.get('/', (req, res) => {
 // Consultar facutura 
 router.get('/:id', (req, res) => {
   const { id } = req.params; 
-  mariadb.query('SELECT * FROM factura WHERE id = ?', [id], (err, rows, fields) => {
+  const query ='select clientes.nombres, clientes.apellidos,  factura.* from factura inner join clientes on factura.cliente = clientes.id where clientes.id=?';
+  mariadb.query(query, [id], (err, rows, fields) => {
     if (!err) {
       res.json(rows[0]);
     } else {

@@ -22,7 +22,7 @@ app.use('/api/clientes/', require('./src/clientes'));
 app.use('/api/productos/', require('./src/productos'));
 
 // Tabla de facturas
-app.use('/api/factura/', require('./src/factura'));
+app.use('/api/facturas/', require('./src/factura'));
 
 app.listen(app.get('port'),() => {
 	console.log(`Server en puerto: ${app.get('port')}`);

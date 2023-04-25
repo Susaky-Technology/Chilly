@@ -30,6 +30,10 @@ class conexion:
             # print("Foto : ", valor['foto_producto'], ": ")
             print("-------------------------------------------------------------------------------------")
         return response
+    
+    def maquetador_facturas(self, response):
+        for valor in response:
+            print(valor)
 
 
 
