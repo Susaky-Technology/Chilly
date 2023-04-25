@@ -49,7 +49,7 @@
 <div class="tabla col menu">
   <hr>
   <h3>Añadir Trabajador:</h3>
-  <form action="/trabajadores" method="POST">
+  <form action="/trabajadores_add" method="POST">
     <label class="item">
       <input type="hidden" name="_method" value="POST">
       <input type="text" name="nombre" placeholder="Nombre: Jorge">
@@ -58,11 +58,11 @@
       <input type="email" name="correo" placeholder="Correo: example@example.com">
       <input type="text" name="direccion" placeholder="Dirección: Puyo">
       <input type="text" name="telefono" placeholder="Teléfono: 09008888">
-      <select class="form-select" aria-label="Default select example">
+      <select class="form-select" aria-label="Default select example" name="area">
         <option selected>-- Selecciona el área de Trabajo --</option>
-        <option name="area">Admin</option>
-        <option name="area">Bodega</option>
-        <option name="area">Caja</option>
+        <option value="admin">Admin</option>
+        <option value="bodega">Bodega</option>
+        <option value="caja">Caja</option>
       </select>
       <label>Carga la foto del trabajador </label>
       <input type="file" name="foto">
@@ -74,7 +74,7 @@
   <hr>
 
   <h3>Editar Trabajador</h3>
-  <form action="/productos" method="POST">
+  <form action="/trabajadores_update" method="POST">
     <label class="item">
       <input type="hidden" name="_method" value="PUT">
       <input type="number" name="id" placeholder="ID: Inserte el ID del Trabajador a editar">
@@ -84,11 +84,11 @@
       <input type="email" name="correo" placeholder="Correo: example@example.com">
       <input type="text" name="direccion" placeholder="Dirección: Puyo">
       <input type="text" name="telefono" placeholder="Teléfono: 09008888">
-      <select class="form-select" aria-label="Default select example">
+      <select class="form-select" aria-label="Default select example" name="area">
         <option selected>-- Selecciona el área de Trabajo --</option>
-        <option name="area">Admin</option>
-        <option name="area">Bodega</option>
-        <option name="area">Caja</option>
+        <option value="admin">Admin</option>
+        <option value="bodega">Bodega</option>
+        <option value="caja">Caja</option>
       </select>
       <label>Carga la foto del trabajador </label>
       <input type="file" name="foto">
@@ -100,7 +100,7 @@
 
   <hr>
   <h3>Eliminar Trabajador</h3>
-  <form action="/productos" method="POST">
+  <form action="/trabajadores_delete" method="POST">
     <label class="item">
       <input type="hidden" name="_method" value="DELETE">
       <input type="number" name="id" placeholder="ID: Inserte el ID del trabajador a eliminar">

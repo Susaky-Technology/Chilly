@@ -44,8 +44,9 @@ router.post('/', (req, res) => {
 // Editar trabajador
 router.put('/:id', (req, res) => {
   const { nombres, apellidos, cedula, correo, direccion, telefono, area, foto_trabajador } = req.body;
-  const query = `update trabajadores set nombres=?, apellidos=?, cedula=?, correo=?, direccion=?, telefono=?, area=?, foto_trabajador=? `;
-  mariadb.query(query, [nombres, apellidos, cedula, correo, direccion, telefono, area, foto_trabajador], (err, rows, fields) => {
+  const { id } = req.params
+  const query = `update trabajadores set nombres=?, apellidos=?, cedula=?, correo=?, direccion=?, telefono=?, area=?, foto_trabajador=? where id =? `;
+  mariadb.query(query, [nombres, apellidos, cedula, correo, direccion, telefono, area, foto_trabajador, id], (err, rows, fields) => {
     if(!err) {
       res.json({status: 'Trabajador actualizado'});
     } else {
