@@ -9,6 +9,7 @@ import os
 # Configuramos las routas de los diferentes modulos
 from routes.productos import router as productos 
 from routes.trabajadores import router as trabajadores
+from routes.facturas import router as facturas 
 
 # Configuramos FastAPi
 app = FastAPI()
@@ -18,6 +19,7 @@ templates = Jinja2Templates(directory="templates")
 # Rutas en modulos externos
 app.include_router(productos)
 app.include_router(trabajadores)
+app.include_router(facturas)
 
 
 if __name__ == '__main__':

@@ -52,9 +52,10 @@ router.post('/', (req, res) => {
 
 // Editar factura 
 router.put('/:id', (req, res) => {
+  const { id } = req.params;
   const { clientes, fecha, ciudad, compras, subtotal, descuento, iva, total } = req.body;
-  const query = `update factura set clientes=?, fecha=?, ciudad=?, compras=?, subtotal=?, descuento=?, iva=?, total=?`;
-  mariadb.query(query, [clientes, fecha, ciudad, compras, subtotal, descuento, iva, total], (err, rows, fields) => {
+  const query = `update factura set clientes=?, fecha=?, ciudad=?, compras=?, subtotal=?, descuento=?, iva=?, total=? where id=?`;
+  mariadb.query(query, [clientes, fecha, ciudad, compras, subtotal, descuento, iva, total, id], (err, rows, fields) => {
     if(!err) {
       res.json({status: 'Factura actualizado'});
     } else {
