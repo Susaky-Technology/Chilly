@@ -21,6 +21,15 @@ app.include_router(productos)
 app.include_router(trabajadores)
 app.include_router(facturas)
 
+@app.get("/", response_class=HTMLResponse)
+async def index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/camara", response_class=HTMLResponse)
+async def index(request: Request):
+    return templates.TemplateResponse("camara.html", {"request": request})
+
+
 
 if __name__ == '__main__':
     db_url = os.getenv('DB_URL')

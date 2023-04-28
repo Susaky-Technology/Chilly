@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Camara</title>
+</head>
+<body>
+
+    <!-- Agrega el elemento de video para mostrar la imagen de la cámara -->
+    <video id="camera" playsinline></video>
+
+    <!-- Agrega el script de QuaggaJS -->
+    <script src="https://unpkg.com/quagga"></script>
+
+    <!-- Cargar Quagga y sus dependencias -->
+    <script src="https://unpkg.com/@ericblade/quagga2@2.1.1/dist/quagga.min.js"></script>
+    <script src="https://unpkg.com/@ericblade/quagga2@2.1.1/dist/quagga.min.js.map"></script>
+
+
+    <!-- Agrega tu script de JavaScript -->
+    <script src="{{ url_for('static', path='scripts/camara.js') }}"></script>
+
+    <!-- Elemento para mostrar el resultado del escaneo -->
+    <div id="result">
+
+    </div>
+
+
+    
+</body>
+</html>
